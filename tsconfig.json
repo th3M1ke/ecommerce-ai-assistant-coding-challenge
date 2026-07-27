@@ -2,9 +2,9 @@
   // Minimal configuration so the starter runs under tsx and so editors resolve
   // ESM, `import.meta`, and `.ts` imports correctly.
   //
-  // It intentionally does NOT enable `strict` or any style/lint rules. Choosing
-  // and configuring type-strictness (and any test runner, linter, or formatter)
-  // to your taste is part of the exercise — tighten this as you see fit.
+  // `strict` is on: this code leans on discriminated unions (interpretation
+  // outcomes, entity resolutions, time windows) and narrowing them correctly is
+  // most of what keeps model output from reaching SQL unchecked.
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
@@ -14,8 +14,11 @@
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "scripts"],
+  "include": ["src", "scripts", "tests"],
   "exclude": ["node_modules"]
 }

@@ -9,7 +9,12 @@
   },
   "scripts": {
     "db:create": "tsx scripts/create-database.ts",
-    "db:reset": "tsx scripts/create-database.ts --reset"
+    "db:reset": "tsx scripts/create-database.ts --reset",
+    "start": "tsx --env-file-if-exists=.env src/server/index.ts",
+    "dev": "tsx watch --env-file-if-exists=.env src/server/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "coding-challenge",
@@ -20,12 +25,14 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
-    "better-sqlite3": "^13.0.1"
+    "better-sqlite3": "^13.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.10.0",
     "tsx": "^4.23.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.10"
   }
 }
